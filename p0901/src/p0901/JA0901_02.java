@@ -1,0 +1,27 @@
+package p0901;
+
+import java.util.Scanner;
+
+public class JA0901_02 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("학번을 입력하세요");
+		int number = scan.nextInt(); // enter키값은 입력을 받지 않음.
+		scan.nextLine(); // 아래 nextLine이 enter값을 입력 받아 공백으로 표기 되는 것을 막기위해 앞서 입력한 enter키 적용
+		System.out.println("이름을 입력하세요.");
+		//String name = scan.next();   // 사이띄우기 안됨
+		String name = scan.nextLine(); // ente키 입력까지 입력받음. 사이띄우기 가능
+		System.out.println("이름 : " + name);
+		
+		System.out.println("국어점수를 입력하세요.");
+		String k = scan.nextLine(); // nextLine -> 문자열을 입력 받는 명령어
+		int kor = Integer.parseInt(k); // String을 int타입으로 변경, String -> int 8가지 기본형 타입이면 형변환
+		System.out.println("영어점수를 입력하세요.");
+		String e = scan.nextLine();
+		int eng = Integer.parseInt(e);
+		System.out.println("합계 : "+(kor+eng));
+
+	}
+
+}
