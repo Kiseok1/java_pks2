@@ -32,11 +32,11 @@ public class J0907_09 {
 		Arrays.sort(lotto);
 		
 		//당첨번호 확인
-		for (int i=0;i<6;i++) {
-			System.out.print(lotto[i]+" ");
-		}
-		
-		System.out.println();
+//		for (int i=0;i<6;i++) {
+//			System.out.print(lotto[i]+" ");
+//		}
+//		
+//		System.out.println();
 		for (int i=0;i<6;i++ ) {
 			System.out.println("번호 입력");
 			myNum[i]=scan.nextInt();		
@@ -45,13 +45,13 @@ public class J0907_09 {
 		
 		System.out.print("당첨 번호 : ");
 		for (int i=0;i<6;i++) {
-			System.out.print(lotto[i]+" ");
+			System.out.printf("%2d ",lotto[i]);
 		}
 		
 		System.out.println();
 		System.out.print("입력 번호 : ");
 		for (int i=0;i<6;i++) {
-			System.out.print(myNum[i]+" ");
+			System.out.printf("%2d ",myNum[i]);
 		}
 		
 		for (int i=0;i<6;i++) {
