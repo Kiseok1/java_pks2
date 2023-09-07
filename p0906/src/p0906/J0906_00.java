@@ -16,19 +16,26 @@ public class J0906_00 {
 		
 		//로또
 		int[] ball = new int[45];
-		int[] lotto = new int[6];
-		int temp=0;
-		
-		for (int i=0;i<ball.length;i++) {
-			ball[i]=i+1;
+		int[] num = new int[6];
+		int i = 0;
+		int temp = 0;
+		int random = 0;
+		for (i=0;i<ball.length;i++) {
+			ball[i]=i+1;			
+		}
+		for (i=0;i<500;i++) {
+			random= (int)(Math.random()*45);
+			temp=ball[0];
+			ball[0]=ball[random];
+			ball[random]=temp;
+			
 		}
 		
-		for (int i=0;i<500;i++) {
-			int random = (int)(Math.random()*45)+1;
-			temp = ball[i];
-			ball[i] = ball[random];
-			ball[random] = temp;
+		for (i=0;i<6;i++) {
+			System.out.print(ball[i]+"  ");
 		}
+		
+		
 
 	}//main
 
