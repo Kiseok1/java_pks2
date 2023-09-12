@@ -7,7 +7,7 @@ public class J0912_00 {
 		
 		//this() this 복습
 		
-		//카드 만들기(Deck,Card)
+		//카드 만들기(Deck,Card) - 카드선택 (임의번호 지정/랜덤) /카드셔플
 
 	}//main
 
