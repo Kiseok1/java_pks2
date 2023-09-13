@@ -12,8 +12,9 @@ public class J0913_07 {
 		
 		
 		b1.buy(new Computer()); //컴퓨터 구매
+		System.out.println("현재 잔액 : "+b1.money);
 		b1.buy(new Audio()); //오디오 구매
-		
+		System.out.println("현재 잔액 : "+b1.money);
 
 	}//main
 
