@@ -58,8 +58,132 @@ public class StuAction {
     
     //3.학생성적수정
     void stuUpdate() {
-    	
-    }
+    	while(true) {
+			System.out.println("[[ 학생성적 수정 ]]");
+			System.out.println("수정할 학생이름을 입력하세요.(0.이전페이지 이동");
+			String inputName = scan.next();
+			if (inputName.equals("0")) {
+				System.out.println("이전페이지로 이동합니다.");
+				System.out.println();
+				break;
+			}
+			System.out.println("입력된 이름으로 검색중........");
+			int i = 0;     //검색되었을때 위치점을 저장하는 변수
+			int count = 0; // 찾는 학생이 있는지 확인하는 변수
+			for(i=0;i<list.size();i++) {
+				StuScore st = list.get(i);
+				if(inputName.equals(st.getName())) {
+					System.out.println("입력된 이름으로 학생이 검색되었습니다.");
+					count = 1;
+					break; //for 나오기
+				}//if
+			}//for
+			
+			if(count==0) { //검색된 이름이 없으면 실행
+				System.out.println("학생이 검색되지 않습니다. 다시 입력하세요");
+				continue; 
+			}// if 
+			
+			System.out.println("-------------------------");
+			System.out.println("1.국어 점수");
+			System.out.println("2.영어 점수");
+			System.out.println("3.수학 점수");
+			System.out.println("-------------------------");
+			System.out.println("원하는 번호를 입력하세요.>>");
+			int choice = scan.nextInt();
+			switch(choice) {
+			case 1: 
+				System.out.println("[[ 국어점수 수정 ]]");
+				System.out.println("-------------------------");
+				System.out.println("● 현재 국어점수 : "+list.get(i).getKor());
+				System.out.println("변경할 국어점수를 입력하세요.>>");						
+				list.get(i).setKor(scan.nextInt());
+				list.get(i).setTotal(list.get(i).getKor()+list.get(i).getEng()+list.get(i).getMath());
+				list.get(i).setAvg(list.get(i).getTotal()/3.0);
+				System.out.println("-------------------------");
+				System.out.println(list.get(i).getKor()+"점으로 국어점수가 수정되었습니다.");
+				System.out.println();
+				break;
+			case 2: 
+				System.out.println("[[ 영어점수 수정 ]]");
+				System.out.println("-------------------------");
+				System.out.println("● 현재 영어점수 : "+list.get(i).getEng());
+				System.out.println("변경할 영어점수를 입력하세요.>>");						
+				list.get(i).setEng(scan.nextInt());
+				list.get(i).setTotal(list.get(i).getKor()+list.get(i).getEng()+list.get(i).getMath());
+				list.get(i).setAvg(list.get(i).getTotal()/3.0);
+				System.out.println("-------------------------");
+				System.out.println(list.get(i).getEng()+"점으로 영어점수가 수정되었습니다.");
+				System.out.println();
+				break;
+			case 3:
+				System.out.println("[[ 수학점수 수정 ]]");
+				System.out.println("-------------------------");
+				System.out.println("● 현재 수학점수 : "+list.get(i).getMath());
+				System.out.println("변경할 수학점수를 입력하세요.>>");						
+				list.get(i).setMath(scan.nextInt());
+				list.get(i).setTotal(list.get(i).getKor()+list.get(i).getEng()+list.get(i).getMath());
+				list.get(i).setAvg(list.get(i).getTotal()/3.0);
+				System.out.println("-------------------------");
+				System.out.println(list.get(i).getMath()+"점으로 수학점수가 수정되었습니다.");
+				System.out.println();
+				break;
+			}//switch
+			
+		}//while
+    }//stuUpdate
+    
+    //4.학생성적 삭제
+    void stuDelete() {
+    	while(true) {
+			System.out.println("[[ 학생성적 삭제 ]]");
+			System.out.println("삭제할 학생이름을 입력하세요.(0.이전페이지 이동");
+			String inputName = scan.next();
+			if (inputName.equals("0")) {
+				System.out.println("이전페이지로 이동합니다.");
+				System.out.println();
+				break;
+			}
+			System.out.println("입력된 이름으로 검색중........");
+			int i = 0;     //검색되었을때 위치점을 저장하는 변수
+			int count = 0; // 찾는 학생이 있는지 확인하는 변수
+			for(i=0;i<list.size();i++) {
+				StuScore st = list.get(i);
+				if(inputName.equals(st.getName())) {
+					System.out.println("입력된 이름으로 학생이 검색되었습니다.");
+					count = 1;
+					break; //for 나오기
+				}//if
+			}//for
+			
+			if(count==0) { //검색된 이름이 없으면 실행
+				System.out.println("학생이 검색되지 않습니다. 다시 입력하세요");
+				continue; 
+			}// if 
+			
+			System.out.println("-------------------------");
+			System.out.println("1. 학생성적 삭제");
+			System.out.println("2. 학생성적삭제 취소");
+			System.out.println("-------------------------");
+			System.out.println("원하는 번호를 입력하세요.>>");
+			int choice = scan.nextInt();
+			switch(choice) {
+			case 1: 
+				System.out.println("[[ 학생성적 삭제 ]]");
+				System.out.println("-------------------------");
+				System.out.println(inputName+" 학생성적이 삭제되었습니다.");
+				list.remove(i); //학생성적 삭제
+				System.out.println();
+				break;
+			case 2: 
+				System.out.println("[[ 학생성적삭제 취소 ]]");
+				System.out.println("-------------------------");
+				System.out.println(inputName+"학생성적삭제가 취소되었습니다.");
+				System.out.println();
+				break;
+			}//switch
+		}//while
+    }//stuDelete
     
     
     
@@ -104,6 +228,26 @@ public class StuAction {
 		System.out.println("학생성적을 파일에 저장했습니다.");
 		System.out.println();
     }//stuFSave
+    
+    //10. 등수처리
+    void stuRank() {
+    	System.out.println("[[ 학생성적 등수처리 ]]");
+		list.size();
+		for(int i=0;i<list.size();i++) {
+			int count =1; //등수
+			StuScore st1 = list.get(i);
+			for(int j=0;j<list.size();j++) {
+				StuScore st2 = list.get(j);
+				if(st1.getTotal()<st2.getTotal()) count++;
+			}//for j
+			st1.setRank(count);
+			System.out.println("학생"+(i+1)+"명의 등수 처리중...");
+			
+		}//for i
+		System.out.println("학생성적 등수처리가 완료되었습니다.");
+		System.out.println();
+		
+    }//stuRank
     
     //이름순 정렬
     void stuNameSort() {
